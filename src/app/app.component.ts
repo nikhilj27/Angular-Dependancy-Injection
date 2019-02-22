@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { ExampleDef } from './example.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'DependancyInjection';
+
+  constructor(private router: Router,
+    @Inject('ExampleDefs') public examples: ExampleDef[]) { }
 }
